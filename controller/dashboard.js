@@ -1,3 +1,7 @@
 module.exports = function(req, res){
-    res.render('dashboard.html');
+    var c = {
+        'menu': req.menu,
+        'user': req.session.user
+    }
+    res.render('dashboard.html', c);
 }

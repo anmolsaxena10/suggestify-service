@@ -7,7 +7,7 @@ module.exports = function(req, res, next){
             },
             {
                 name: 'Dashboard',
-                link: '/dashboard'
+                url: '/dashboard'
             },
             {
                 name: 'How To',
@@ -40,6 +40,10 @@ module.exports = function(req, res, next){
             {
                 name: 'Register',
                 url: '/register'
+            },
+            {
+                name: 'Login',
+                url: '/login'
             }
         ];
     }
