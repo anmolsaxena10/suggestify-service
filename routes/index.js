@@ -7,17 +7,19 @@ var loginPostController = require('../controller/login/post');
 var aboutController = require('../controller/about');
 var howToController = require('../controller/how_to');
 var dashController = require('../controller/dashboard');
+var logoutController = require('../controller/logout');
 var auth = require('../utils/authenticate');
-
+var navbar = require('../utils/navbar');
 var router = express.Router();
 
-router.get('/', auth.loginRequired, homeController);
-router.get('/dashboard', dashController);
-router.get('/register', registerGetController);
-router.post('/register', registerPostController);
-router.get('/login', loginGetController);
-router.post('/login', loginPostController);
-router.get('/about', aboutController);
-router.get('/how_to', howToController);
+router.get('/', navbar, homeController);
+router.get('/dashboard', [auth.loginRequired, navbar], dashController);
+router.get('/register', navbar, registerGetController);
+router.post('/register', navbar, registerPostController);
+router.get('/login', navbar, loginGetController);
+router.post('/login', navbar, loginPostController);
+router.get('/about', navbar, aboutController);
+router.get('/how_to', navbar, howToController);
+router.get('/logout', [auth.loginRequired, navbar], logoutController);
 
 module.exports = router;
