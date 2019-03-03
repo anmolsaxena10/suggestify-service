@@ -7,9 +7,11 @@ var loginPostController = require('../controller/login/post');
 var aboutController = require('../controller/about');
 var howToController = require('../controller/how_to');
 var dashController = require('../controller/dashboard');
+var auth = require('../utils/authenticate');
+
 var router = express.Router();
 
-router.get('/', homeController);
+router.get('/', auth.loginRequired, homeController);
 router.get('/dashboard', dashController);
 router.get('/register', registerGetController);
 router.post('/register', registerPostController);

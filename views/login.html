@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block main %}
+<div class="container">
+    <form action='login/' method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="app_name" name="app_name" type="text" class="validate">
+                <label for="app_name">Application Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+{% endblock %}
