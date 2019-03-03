@@ -4,6 +4,19 @@
 
 {% block main %}
 <div class="container">
-    dashboard
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">email</i>Email</div>
+            <div class="collapsible-body"><span>{{user.email}}</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">apps</i>Application Name</div>
+            <div class="collapsible-body"><span>{{user.app_name}}</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">vpn_key</i>API Token</div>
+            <div class="collapsible-body"><span class="flow-text" style="word-wrap: break-word;">{{token}}</span></div>
+        </li>
+    </ul>
 </div>
 {% endblock %}

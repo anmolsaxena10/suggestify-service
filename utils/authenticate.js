@@ -18,4 +18,6 @@ exports.getTenant = async function(email, password){
 exports.logout = function(req){
     req.session.isLoggedIn = false;
     req.session.jwtToken = null;
+    req.session.user = null;
+    return;
 }
