@@ -1,3 +1,4 @@
 module.exports = function(req, res){
-    res.render('login.html');
+    if(req.session.isLoggedIn) res.redirect('/');
+    else res.render('login.html');
 }

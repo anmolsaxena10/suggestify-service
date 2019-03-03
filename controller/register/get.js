@@ -1,3 +1,3 @@
 module.exports = function(req, res){
-    res.render('dashboard.html');
+    res.render('register.html');
 }

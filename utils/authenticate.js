@@ -1,17 +1,21 @@
 var mongoCon = require('./mongo').Connection;
 
 exports.loginRequired = function(req, res, next){
-    mongoCon.db.collection('anmol').insertOne({
-        name: "anmol",
-        mobile_no: "9427260544"
-    }, function(err, res){
-        if(err) throw err;
-        console.log("oh yeah!!!");
-    });
-    if(req.session.isLoggedIn) next();
+    if(req.session.isLoggedIn == true){
+        next();
+    }
     else res.redirect('/login');
 }
 
-exports.doLogin = function(app_name, password){
-    
+exports.getTenant = async function(email, password){
+    var user =  await mongoCon.db.collection('tenants').findOne({
+        email: email,
+        password: password
+    });
+    return user;
+}
+
+exports.logout = function(req){
+    req.session.isLoggedIn = false;
+    req.session.jwtToken = null;
 }
