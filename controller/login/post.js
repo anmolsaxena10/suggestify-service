@@ -8,11 +8,12 @@ module.exports = async function(req, res){
         var user = await auth.getTenant(email, password);
         if(user!=null){
             req.session.isLoggedIn = true;
-            req.session.jwtToken = jwt.sign({
+            req.session.user = {
                 tenant_id: user._id,
                 email: user.email,
                 app_name: user.app_name
-            });
+            }
+            req.session.jwtToken = jwt.sign(req.session.user);
         }
         res.redirect('/');
     }
