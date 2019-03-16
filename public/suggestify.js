@@ -24,7 +24,7 @@ class Suggestify{
 
     wrapInput(){
         var wrapper = document.createElement('div');
-        wrapper.classList.add('auto-wrapper');
+        wrapper.classList.add('suggestify-wrapper');
         this.input.parentNode.insertBefore(wrapper, this.input);
         wrapper.appendChild(this.input);
     }
@@ -32,7 +32,7 @@ class Suggestify{
     createUI(){
         var listUI = document.createElement('ui');
         listUI.style.top = this.input.getBoundingClientRect().height + 'px';
-        listUI.classList.add('autocomplete-ui');
+        listUI.classList.add('suggestify-ui');
         this.input.parentNode.appendChild(listUI);
         this.listUI = listUI;
     }
