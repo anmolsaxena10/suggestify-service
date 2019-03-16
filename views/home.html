@@ -5,5 +5,17 @@
 {% block main %}
 <div class="container">
     Home
+    <form id="demo-form">
+        <input id="demo" type="text">
+    </form>
+    {{token}}
 </div>
+
+<script>
+    const demo = new Suggestify({
+        input: document.getElementById("demo"),
+        form: document.getElementById("demo-form"),
+        token: '{{token}}'
+    });
+</script>
 {% endblock %}
