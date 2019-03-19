@@ -1,6 +1,7 @@
 <nav>
     <div class="nav-wrapper red">
         <a href="#" class="brand-logo">Suggestify</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% for item in menu %}
             <li><a href="{{item.url}}" class="">{{item.name}}</a></li>
@@ -8,3 +9,9 @@
         </ul>
     </div>
 </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    {% for item in menu %}
+    <li><a href="{{item.url}}" class="">{{item.name}}</a></li>
+    {% endfor %}
+</ul>

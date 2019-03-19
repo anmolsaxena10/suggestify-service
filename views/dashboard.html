@@ -6,6 +6,16 @@
 <div class="container">
     <ul class="collapsible">
         <li>
+            <div class="collapsible-header"><i class="material-icons">show_chart</i>Your Demo</div>
+            <div class="collapsible-body">
+                <div class="container">
+                    <form id="demo-form">
+                        <input id="demo" type="text" placeholder="Start Typing...">
+                    </form>
+                </div>
+            </div>
+        </li>
+        <li>
             <div class="collapsible-header"><i class="material-icons">email</i>Email</div>
             <div class="collapsible-body"><span>{{user.email}}</span></div>
         </li>
@@ -19,4 +29,11 @@
         </li>
     </ul>
 </div>
+<script>
+    const demo = new Suggestify({
+        input: document.getElementById("demo"),
+        form: document.getElementById("demo-form"),
+        token: '{{token}}'
+    });
+</script>
 {% endblock %}
