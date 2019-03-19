@@ -8,6 +8,7 @@ var aboutController = require('../controller/about');
 var howToController = require('../controller/how_to');
 var dashController = require('../controller/dashboard');
 var logoutController = require('../controller/logout');
+var apiRefController = require('../controller/api_ref');
 var auth = require('../utils/authenticate');
 var navbar = require('../utils/navbar');
 var router = express.Router();
@@ -21,5 +22,5 @@ router.post('/login', navbar, loginPostController);
 router.get('/about', navbar, aboutController);
 router.get('/how_to', navbar, howToController);
 router.get('/logout', [auth.loginRequired, navbar], logoutController);
-
+router.get('/api_ref', navbar, apiRefController);
 module.exports = router;

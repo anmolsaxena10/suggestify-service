@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}API Reference{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h4 class="center-align">API Reference</h4>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">get_app</i>GET</div>
+            <div class="collapsible-body">
+                GET /api/suggest/query
+                <blockquote><code><pre>curl -X GET \
+http://localhost:8080/api/suggest/a \
+-H 'authorization: --TOKEN--'</pre></code></blockquote>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">local_post_office</i>POST</div>
+            <div class="collapsible-body">
+                POST /api/suggest
+                    <blockquote><code><pre>curl -X POST \
+http://localhost:8080/api/suggest/ \
+-H 'authorization: --TOKEN--' \
+-H 'content-type: application/x-www-form-urlencoded' \
+-d 'suggestions=nadiad&suggestions=ddu'</pre></code></blockquote>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">update</i>PUT</div>
+            <div class="collapsible-body">
+                PUT /api/suggest
+                <blockquote><code><pre>curl -X PUT \
+http://localhost:8080/api/suggest/ \
+-H 'authorization: --TOKEN--' \
+-d 'suggestion=anmol&suggestions=ddu'</pre></code></blockquote>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">delete</i>DELETE</div>
+            <div class="collapsible-body">
+                DELETE /api/suggest
+                <blockquote><code><pre></pre>curl -X DELETE \
+http://localhost:8080/api/suggest/ \
+-H 'authorization: --TOKEN--' \
+-d 'suggestions=nadiad&suggestions=ddu'</pre></code></blockquote>
+            </div>
+        </li>
+    </ul>
+</div>
+{% endblock %}

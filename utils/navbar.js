@@ -18,6 +18,10 @@ module.exports = function(req, res, next){
                 url: '/about'
             },
             {
+                name: 'API Reference',
+                url: '/api_ref'
+            },
+            {
                 name: 'Logout',
                 url: '/logout'
             }
@@ -36,6 +40,10 @@ module.exports = function(req, res, next){
             {
                 name: 'About',
                 url: '/about'
+            },
+            {
+                name: 'API Reference',
+                url: '/api_ref'
             },
             {
                 name: 'Register',
