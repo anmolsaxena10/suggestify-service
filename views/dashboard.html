@@ -27,6 +27,32 @@
             <div class="collapsible-header"><i class="material-icons">vpn_key</i>API Token</div>
             <div class="collapsible-body"><span class="flow-text" style="word-wrap: break-word;">{{token}}</span></div>
         </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">add_circle</i>Add Suggestions</div>
+            <div class="collapsible-body">
+                <form id="post-form">
+                    <div id="master">
+                        <input name="suggestions[]" placeholder="Suggestion" />
+                    </div>
+                </form>
+
+                <a class="btn red" id="clone" href="#"><i class="material-icons">add</i></a>
+                <a class="btn red" id="post" href="#"><i class="material-icons">send</i></a>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">delete</i>Delete Suggestion</div>
+            <div class="collapsible-body">
+                <form id="delete-form">
+                    <div id="master1">
+                        <input name="suggestions[]" placeholder="Suggestion" />
+                    </div>
+                </form>
+
+                <a class="btn red" id="clone1" href="#"><i class="material-icons">add</i></a>
+                <a class="btn red" id="delete" href="#"><i class="material-icons">send</i></a>
+            </div>
+        </li>
     </ul>
 </div>
 <script>
@@ -34,6 +60,42 @@
         input: document.getElementById("demo"),
         form: document.getElementById("demo-form"),
         token: '{{token}}'
+    });
+    $('#clone').click(function (e) {
+        e.preventDefault();
+        $('#master').clone().appendTo('#post-form');
+    });
+    $('#post').click(function (e) {
+        var form = document.getElementById('post-form');
+        var suggestions = [];
+        for (var i = 0; i < form.length; i++) {
+            suggestions.push(form.elements[i].value);
+        }
+        console.log(suggestions);
+        axios.post('http://localhost:8080/api/suggest', {
+            suggestions: suggestions
+        })
+            .then((response) => { console.log(response) })
+            .catch((error) => { console.log(error) });
+    });
+    $('#clone1').click(function (e) {
+        e.preventDefault();
+        $('#master1').clone().appendTo('#delete-form');
+    });
+    $('#delete').click(function (e) {
+        var form = document.getElementById('delete-form');
+        var suggestions = [];
+        for (var i = 0; i < form.length; i++) {
+            suggestions.push(form.elements[i].value);
+        }
+        console.log(suggestions);
+        axios.delete('http://localhost:8080/api/suggest', {
+            data: {
+                suggestions: suggestions
+            }
+        })
+            .then((response) => { console.log(response) })
+            .catch((error) => { console.log(error) });
     });
 </script>
 {% endblock %}
