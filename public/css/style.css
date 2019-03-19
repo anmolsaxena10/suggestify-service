@@ -11,3 +11,7 @@ main{
 .brand-logo{
     font-family: 'Satisfy', cursive;
 }
+
+blockquote{
+    overflow: scroll;
+}

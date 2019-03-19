@@ -4,6 +4,23 @@
 
 {% block main %}
 <div class="container">
-    How To
+    <h4 class="center-align">Setup</h4>
+    <p>Include the Suggestify CSS in your website:</p>
+    <p>Download it from <a href="#" download="suggestify.css">here</a>.</p>
+    <blockquote><pre><code><span><</span>link rel="stylesheet" href="path-to-css/suggestify.css"></code></pre></blockquote>
+
+    Axios is a required dependency. Include the following CDN:
+    <blockquote><pre><code><span><</span>script src="https://unpkg.com/axios/dist/axios.min.js"><span><</span>/script></code></pre></blockquote>
+
+    <p>Include the Suggestify script:</p>
+    <p>Download it from <a href="#" download="suggestify.js">here</a>.</p>
+    <blockquote><pre><code><span><</span>script src="path-to-script/suggestify.js"><span><</span>/script></code></pre></blockquote>
+
+    <p>Then create a new instance of Suggestify with your input field and token.</p>
+    <blockquote><pre><code>const demo = new Suggestify({
+        input: document.getElementById("your-input#id"),
+        form: document.getElementById("your-form#id"),
+        token: '--YOUR-TOKEN-HERE--'
+    });</code></pre></blockquote>
 </div>
 {% endblock %}
