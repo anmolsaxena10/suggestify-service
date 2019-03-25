@@ -13,6 +13,7 @@ module.exports = function(req, res){
         }
         else {
             user = tenant.ops[0];
+            req.session.user = user;
             req.session.isLoggedIn = true;
             req.session.jwtToken = jwt.sign({
                 'tenant_id': user._id,
